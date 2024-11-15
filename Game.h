@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <vector>
+
 #define SIZE_FIELD  15
 const int EMPTY = 0; // Пустая клетка
 const int PLAYER_O = 1; // Игрок 1 (пользователь)

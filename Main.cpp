@@ -28,7 +28,7 @@ int main()
             for (int j = 0; j < SIZE_FIELD; ++j) {
                 if (game.field[i][j] == EMPTY) {
                     game.field[i][j] = PLAYER_X; // Сделать ход
-                    int moveValue = game.minmax(2, false, std::numeric_limits<int>::max(), std::numeric_limits<int>::min());
+                    int moveValue = game.minmax(1, false, std::numeric_limits<int>::max(), std::numeric_limits<int>::min());
                     game.field[i][j] = EMPTY; // Возврат к исходному состоянию
 
                     if (moveValue > bestValue) { // Сравниваем с текущими лучшими значениями
