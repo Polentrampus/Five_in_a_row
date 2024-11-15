@@ -11,18 +11,6 @@ Game::Game()
     }
 }
 
-void Game::printBoard()
-{
-    for (int i = 0; i < SIZE_FIELD; i++)
-    {
-        for (int j = 0; j < SIZE_FIELD; j++)
-        {
-            std::cout<<" " << field[i][j];
-        }
-        std::cout << std::endl;
-    }
-}
-
 void Game::setPiece(int i, int j, int player)
 {
     if (i >= 0 && i < SIZE_FIELD && j >= 0 && j < SIZE_FIELD)
@@ -77,7 +65,6 @@ int Game::Evaluation() const
 {
     int evalComputer = EvaluationFunction(field, 2, 1);         // Оценка для компьютера
     int evalPlayer = EvaluationFunction(field, 1, 2);           // Оценка для игрока
-    std::cout <<"Оценка: " << evalComputer - evalPlayer << std::endl;
     return evalComputer - evalPlayer;                          // Разница оценок
 }
 

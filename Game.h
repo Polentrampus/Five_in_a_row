@@ -5,8 +5,8 @@
 
 #define SIZE_FIELD  15
 const int EMPTY = 0; // Пустая клетка
-const int PLAYER_O = 1; // Игрок 1 (пользователь)
-const int PLAYER_X = 2; // Игрок 2 (машина)
+const int PLAYER_1 = 1; // Игрок 1 (пользователь)
+const int PLAYER_2 = 2; // Игрок 2 (машина)
 
 class Game
 {
@@ -22,8 +22,8 @@ public:
     // Оценочная функция
     int Evaluation() const;
     bool isWinningMove(int player);
-    void printBoard();
     int minmax(int depth, bool maximizingPlayer, int alpha, int beta);
+    std::vector<int> SpiralMoves(int& x, int& y);
 private:
     // Вспомогательная функция для оценки линии (строка, столбец или диагональ)
     static int evaluateLine(const int* line, int player);
