@@ -23,7 +23,7 @@ public:
     int Evaluation() const;
     bool isWinningMove(int player);
     int minmax(int depth, bool maximizingPlayer, int alpha, int beta);
-    std::vector<int> SpiralMoves(int& x, int& y);
+    void SpiralMoves(int& x, int& y);
 private:
     // Вспомогательная функция для оценки линии (строка, столбец или диагональ)
     static int evaluateLine(const int* line, int player);
