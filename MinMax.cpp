@@ -4,40 +4,6 @@ bool isInBounds(int x, int y) {
     return x >= 0 && x < SIZE_FIELD && y >= 0 && y < SIZE_FIELD;
 }
 
-// Функция для генерации спиральных координат
-void Game::SpiralMoves(int& x, int& y) {
-    int centerX = SIZE_FIELD / 2;
-    int centerY = SIZE_FIELD / 2;
-
-    x = centerX;
-    y = centerY;
-
-    // Проходим по уровням
-    for (int radius = 1; radius < SIZE_FIELD; ++radius) {
-        // Перемещение вверх, вправо, вниз и влево
-        for (int i = 0; i < radius; ++i) { // Вверх
-            y = centerY + i; // Двигаемся вверх по прямой
-            x = centerX - radius; // Устанавливаем x для левой части круга
-            if (isInBounds(x, y) && field[x][y] == EMPTY);
-        }
-        for (int i = 0; i < radius; ++i) { // Вправо
-            x = centerX + i; // Двигаемся по правой части
-            y = centerY + radius;
-            if (isInBounds(x, y) && field[x][y] == EMPTY);
-        }
-        for (int i = 0; i < radius; ++i) { // Вниз
-            x = centerX + radius; // Устанавливаем x для нижней части круга
-            y = centerY - i;
-            if (isInBounds(x, y) && field[x][y] == EMPTY);
-        }
-        for (int i = 0; i < radius; ++i) { // Влево
-            x = centerX - i; // Двигаемся по левой части
-            y = centerY - radius;
-            if (isInBounds(x, y) && field[x][y] == EMPTY);
-        }
-    }
-}
-
 int Game::minmax(int depth, bool maximizingPlayer, int alpha, int beta) {
     if (isWinningMove(PLAYER_1)) return -10000 + depth; // Победа для минимизирующего игрока
     if (isWinningMove(PLAYER_2)) return 10000 - depth;  // Победа для максимизирующего игрока
